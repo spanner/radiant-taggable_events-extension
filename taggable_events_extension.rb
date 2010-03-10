@@ -2,8 +2,8 @@
 # require_dependency 'application_controller'
 
 class TaggableEventsExtension < Radiant::Extension
-  version "1.0"
-  description "A bit of glue to attach tags to event_calendar events and define some radius tags useful in the calendar"
+  version "1.1"
+  description "A bit of glue to attach tags to event_calendar events and define some radius tags useful on calendar pages"
   url "http://radiant.spanner.org/taggable_events"
     
   extension_config do |config|
@@ -15,6 +15,7 @@ class TaggableEventsExtension < Radiant::Extension
     Event.send :is_taggable
     EventCalendarPage.send :include, TaggableEventCalendarPage
     EventCalendarPage.send :include, TaggedEventFinder
+    Page.send :include, TaggableEventTags
   end
   
   def deactivate
