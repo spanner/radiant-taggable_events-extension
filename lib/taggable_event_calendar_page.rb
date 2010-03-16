@@ -1,4 +1,5 @@
 module TaggableEventCalendarPage
+  require 'uri'
 
   def self.included(base)
     base.class_eval {
@@ -15,7 +16,7 @@ module TaggableEventCalendarPage
     
   def url_parts_with_tags
     parts = url_parts_without_tags
-    parts.merge!({ :tags => calendar_tags.join('/') }) if tags_applied?
+    parts.merge!({ :tags => calendar_tags.map(&:title).join('/') }) if tags_applied?
     parts
   end
   

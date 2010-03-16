@@ -1,5 +1,5 @@
 # Uncomment this if you reference any of your controllers in activate
-# require_dependency 'application_controller'
+require_dependency 'application_controller'
 
 class TaggableEventsExtension < Radiant::Extension
   version "1.1"
@@ -13,6 +13,7 @@ class TaggableEventsExtension < Radiant::Extension
   
   def activate
     Event.send :is_taggable
+    EventsController.send :include, TaggedEventsController
     EventCalendarPage.send :include, TaggableEventCalendarPage
     EventCalendarPage.send :include, TaggedEventFinder
     Page.send :include, TaggableEventTags
