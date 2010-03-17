@@ -16,7 +16,8 @@ module TaggableEventCalendarPage
     
   def url_parts_with_tags
     parts = url_parts_without_tags
-    parts.merge!({ :tags => calendar_tags.map(&:title).join('/') }) if tags_applied?
+    tags = calendar_tags.map(&:title).join('/') if calendar_tags
+    parts.merge!({ :tags => tags })
     parts
   end
   
