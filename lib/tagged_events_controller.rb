@@ -32,13 +32,13 @@ module TaggedEventsController
   
   def list_path_with_tags
     path = list_path_without_tags
-    path += @tags.map{|tag| URI.escape(tag.to_s)}
+    path += @tags.map{|tag| URI.escape(tag.to_s)} if @tags && @tags.any?
     path
   end
 
   def list_filename_with_tags
     name = [list_filename_without_tags]
-    name += @tags.map{|t| t.title.downcase.gsub(/\s/, '_')}
+    name += @tags.map{|t| t.title.downcase.gsub(/\s/, '_')} if @tags && @tags.any?
     name.join('_')
   end
 
