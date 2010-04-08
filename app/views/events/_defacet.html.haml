@@ -1,0 +1,8 @@
+- if period
+  = link_to period.description, url_without_period, :class => 'defilter'
+- if tags.any?
+  tagged with
+  = tags.map { |tag| link_to tag.title, url_without_tag(tag), :class => 'defilter' }.to_sentence
+  
+
+  

@@ -2,44 +2,43 @@ module TaggedEventsController
 
   def self.included(base)
     base.class_eval {
-      alias_method_chain :read_parameters, :tags
+      helper_method :tags, :url_with_tag, :url_without_tag
       alias_method_chain :event_finder, :tags
-      alias_method_chain :list_description, :tags
-      alias_method_chain :list_path, :tags
-      alias_method_chain :list_filename, :tags
+      alias_method_chain :continuing_events, :tags
+      alias_method_chain :calendar_parameter_names, :tags
     }
   end
 
-  def read_parameters_with_tags
-    read_parameters_without_tags
-    @tags = Tag.from_list(params[:tags], false) unless params[:tags].blank?
+  def tags
+    @tags ||= Tag.from_list(params[:tags], false) || []
   end
     
   def event_finder_with_tags
     ef = event_finder_without_tags
-    ef = ef.from_all_tags(@tags) if @tags && @tags.any?
+    ef = ef.from_all_tags(tags) if tags.any?
     ef
   end
   
-  def list_description_with_tags
-    description = list_description_without_tags
-    if @tags && @tags.any? 
-      description << ' tagged with '
-      description << @tags.map{|t| "'#{t}'"}.to_sentence
-    end
-    description
+  def continuing_events_with_tags
+    continuing_events_without_tags
+    @continuing_events = @continuing_events.from_all_tags(tags) if tags.any?
+    @continuing_events
   end
   
-  def list_path_with_tags
-    path = list_path_without_tags
-    path += @tags.map{|tag| URI.escape(tag.to_s)} if @tags && @tags.any?
-    path
+  def calendar_parameter_names_with_tags
+    calendar_parameter_names_without_tags + [:tags]
   end
-
-  def list_filename_with_tags
-    name = [list_filename_without_tags]
-    name += @tags.map{|t| t.title.downcase.gsub(/\s/, '_')} if @tags && @tags.any?
-    name.join('_')
+  
+  def url_without_tag(tag)
+    url_for(url_parts({
+      :tags => Tag.to_list(tags - [tag])
+    }))
+  end
+  
+  def url_with_tag(tag)
+    url_for(url_parts({
+      :tags => Tag.to_list(tags + [tag])
+    }))
   end
 
 end

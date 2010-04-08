@@ -14,9 +14,6 @@ class TaggableEventsExtension < Radiant::Extension
   def activate
     Event.send :is_taggable
     EventsController.send :include, TaggedEventsController
-    EventCalendarPage.send :include, TaggableEventCalendarPage
-    EventCalendarPage.send :include, TaggedEventFinder
-    Page.send :include, TaggableEventTags
   end
   
   def deactivate
