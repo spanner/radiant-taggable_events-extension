@@ -1,4 +1,19 @@
-# I think this is the one that should be moved to the extension Rakefile template
+begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |gem|
+    gem.name = "radiant-taggable_events-extension"
+    gem.summary = %Q{Tagging Extension for the Radiant CMS Event_Calendar}
+    gem.description = %Q{A tiny bit of glue to attach tags to event_calendar events and define some radius tags useful on calendar pages}
+    gem.email = "will@spanner.org"
+    gem.homepage = "http://github.com/spanner/radiant-taggable_events-extension"
+    gem.authors = ["spanner"]
+    gem.add_dependency "radiant", ">= 0.9.0"
+    gem.add_dependency "radiant-event_calendar-extension"
+    gem.add_dependency "radiant-taggable-extension"
+  end
+rescue LoadError
+  puts "Jeweler (or a dependency) not available. This is only required if you plan to package taggable_events as a gem."
+end
 
 # In rails 1.2, plugins aren't available in the path until they're loaded.
 # Check to see if the rspec plugin is installed first and require
