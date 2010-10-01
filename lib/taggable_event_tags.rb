@@ -14,7 +14,7 @@ module TaggableEventTags
     options = tag.attr.dup
     tag.locals.events ||= get_events(tag)
     limit = options.delete('limit') || 100
-    tag.locals.tags = Tag.banded(Tag.attached_to(tag.locals.events).most_popular(limit))
+    tag.locals.tags = Tag.sized(Tag.attached_to(tag.locals.events).most_popular(limit))
     tag.render('tags:cloud', options)
   end
   
@@ -29,7 +29,7 @@ module TaggableEventTags
   tag 'all_events:tag_cloud' do |tag|
     options = tag.attr.dup
     limit = options.delete('limit') || 100
-    tag.locals.tags = Tag.banded(Tag.attached_to(tag.locals.events).most_popular(limit))
+    tag.locals.tags = Tag.sized(Tag.attached_to(tag.locals.events).most_popular(limit))
     tag.render('tags:cloud', options)
   end
 end

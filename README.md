@@ -2,6 +2,8 @@
 
 This is a tiny bit of glue to associate taggable's tags with event_calendar's events. It also provides a few useful radius tags for your calendar pages.
 
+
+
 ## Author & Copyright
 
 * William Ross, for spanner. will at spanner.org
