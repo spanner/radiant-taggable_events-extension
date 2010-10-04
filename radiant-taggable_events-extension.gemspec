@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{radiant-taggable_events-extension}
-  s.version = "1.1.0"
+  s.version = "1.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["spanner"]
-  s.date = %q{2010-09-10}
+  s.date = %q{2010-10-04}
   s.description = %q{A tiny bit of glue to attach tags to event_calendar events and define some radius tags useful on calendar pages}
   s.email = %q{will@spanner.org}
   s.extra_rdoc_files = [
@@ -26,13 +26,16 @@ Gem::Specification.new do |s|
      "db/migrate/20100301074622_import_keywords.rb",
      "features/support/env.rb",
      "features/support/paths.rb",
+     "lib/taggable_event.rb",
      "lib/taggable_event_tags.rb",
-     "lib/tagged_event_finder.rb",
      "lib/tagged_events_controller.rb",
      "lib/tasks/taggable_events_extension_tasks.rake",
      "pkg/radiant-taggable_events-extension-1.1.0.gem",
      "public/images/furniture/detag.png",
      "radiant-taggable_events-extension.gemspec",
+     "spec/datasets/events_dataset.rb",
+     "spec/datasets/tags_dataset.rb",
+     "spec/lib/taggable_event_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb",
      "taggable_events_extension.rb"
@@ -43,7 +46,10 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Tagging Extension for the Radiant CMS Event_Calendar}
   s.test_files = [
-    "spec/spec_helper.rb"
+    "spec/datasets/events_dataset.rb",
+     "spec/datasets/tags_dataset.rb",
+     "spec/lib/taggable_event_spec.rb",
+     "spec/spec_helper.rb"
   ]
 
   if s.respond_to? :specification_version then
