@@ -1,8 +1,6 @@
 # Taggable Events
 
-This is a tiny bit of glue to associate taggable's tags with event_calendar's events. It also provides a few useful radius tags for your calendar pages.
-
-
+This is a tiny bit of glue to associate taggable's tags with event_calendar's events. It also provides a few useful radius tags for your calendar pages and adds a `tagcloud` page part to the main calendar view.
 
 ## Author & Copyright
 

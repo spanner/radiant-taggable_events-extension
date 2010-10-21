@@ -2,9 +2,8 @@
   - if all_events.any?
     - cloudtags = Tag.for_cloud(Tag.attached_to(all_events).except(tags).most_popular(50))
     - if cloudtags.any?
-      %ul.cloud
+      %div.cloud
         - cloudtags.each do |tag|
-          %li
-            = link_to tag.title, url_with_tag(tag), :class => 'filter', :style => "font-size: #{tag.cloud_size.to_f * 1.5}em;"
-      %p.help  
-        Click on a tag to see only the relevant events.
+          = link_to tag.title, url_with_tag(tag), :class => 'filter', :style => "font-size: #{tag.cloud_size.to_f * 1.5}em;"
+      %p.help 
+        = t('click_to_filter')

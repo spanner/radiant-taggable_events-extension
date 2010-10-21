@@ -1,6 +1,6 @@
 - if event.attached_tags.any?
-  %span.tags_summary
+  %span.tags
     - event.attached_tags.each do |tag|
       - unless tags.include?(tag)
-        = link_to tag.title, url_with_tag(tag), :class => 'filter'
+        = link_to tag.title, url_with_tag(tag), :class => 'facet'
     

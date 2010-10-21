@@ -7,9 +7,9 @@ begin
     gem.email = "will@spanner.org"
     gem.homepage = "http://github.com/spanner/radiant-taggable_events-extension"
     gem.authors = ["spanner"]
-    gem.add_dependency "radiant", ">= 0.9.0"
-    gem.add_dependency "radiant-event_calendar-extension"
-    gem.add_dependency "radiant-taggable-extension"
+    gem.add_dependency "radiant", "~> 0.9.0"
+    gem.add_dependency "radiant-event_calendar-extension", "~> 1.3.0"
+    gem.add_dependency "radiant-taggable-extension", "~> 1.2.0"
   end
 rescue LoadError
   puts "Jeweler (or a dependency) not available. This is only required if you plan to package taggable_events as a gem."

@@ -1,8 +1,8 @@
 - if period
-  = link_to period.description, url_without_period, :class => 'defilter'
+  = link_to period.description, url_without_period, :class => 'defacet'
 - if tags.any?
-  tagged with
-  = tags.map { |tag| link_to tag.title, url_without_tag(tag), :class => 'defilter' }.to_sentence
+  = t("tagged_with")
+  = tags.map { |tag| link_to tag.title, url_without_tag(tag), :class => 'defacet' }.to_sentence
   
 
   

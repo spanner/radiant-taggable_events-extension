@@ -2,7 +2,7 @@
 require_dependency 'application_controller'
 
 class TaggableEventsExtension < Radiant::Extension
-  version "1.2.0"
+  version "1.3.0"
   description "A tiny bit of glue to attach tags to event_calendar events and define some radius tags useful on calendar pages"
   url "http://github.com/spanner/radiant-taggable_events-extension"
     
