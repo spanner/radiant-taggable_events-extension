@@ -2,7 +2,7 @@
 require_dependency 'application_controller'
 
 class TaggableEventsExtension < Radiant::Extension
-  version "1.3.0"
+  version "1.3.1"
   description "A tiny bit of glue to attach tags to event_calendar events and define some radius tags useful on calendar pages"
   url "http://github.com/spanner/radiant-taggable_events-extension"
     
@@ -12,6 +12,7 @@ class TaggableEventsExtension < Radiant::Extension
     Event.send :is_taggable                                       # make events taggable 
     Event.send :include, TaggableEvent                            # and inherit tags from venue and calendar
     EventsController.send :include, TaggedEventsController        # further complicate the retrieval of events by adding tag-filters
+    Page.send :include, TaggableEventTags                         # supports tag conditions on r:events:* radius tags
   end
   
 end

@@ -5,23 +5,25 @@
 
 Gem::Specification.new do |s|
   s.name = %q{radiant-taggable_events-extension}
-  s.version = "1.2.0"
+  s.version = "1.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["spanner"]
-  s.date = %q{2010-10-04}
+  s.date = %q{2010-10-21}
   s.description = %q{A tiny bit of glue to attach tags to event_calendar events and define some radius tags useful on calendar pages}
   s.email = %q{will@spanner.org}
   s.extra_rdoc_files = [
     "README.md"
   ]
   s.files = [
-    "README.md",
+    ".gitignore",
+     "README.md",
      "Rakefile",
      "VERSION",
      "app/views/events/_defacet.html.haml",
-     "app/views/events/_event_postscript.html.haml",
+     "app/views/events/_keywords.html.haml",
      "app/views/events/_other_page_parts.html.haml",
+     "config/locales/en.yml",
      "cucumber.yml",
      "db/migrate/20100301074622_import_keywords.rb",
      "features/support/env.rb",
@@ -30,7 +32,6 @@ Gem::Specification.new do |s|
      "lib/taggable_event_tags.rb",
      "lib/tagged_events_controller.rb",
      "lib/tasks/taggable_events_extension_tasks.rake",
-     "pkg/radiant-taggable_events-extension-1.1.0.gem",
      "public/images/furniture/detag.png",
      "radiant-taggable_events-extension.gemspec",
      "spec/datasets/events_dataset.rb",
@@ -57,18 +58,18 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<radiant>, [">= 0.9.0"])
-      s.add_runtime_dependency(%q<radiant-event_calendar-extension>, [">= 0"])
-      s.add_runtime_dependency(%q<radiant-taggable-extension>, [">= 0"])
+      s.add_runtime_dependency(%q<radiant>, ["~> 0.9.0"])
+      s.add_runtime_dependency(%q<radiant-event_calendar-extension>, ["~> 1.3.0"])
+      s.add_runtime_dependency(%q<radiant-taggable-extension>, ["~> 1.2.0"])
     else
-      s.add_dependency(%q<radiant>, [">= 0.9.0"])
-      s.add_dependency(%q<radiant-event_calendar-extension>, [">= 0"])
-      s.add_dependency(%q<radiant-taggable-extension>, [">= 0"])
+      s.add_dependency(%q<radiant>, ["~> 0.9.0"])
+      s.add_dependency(%q<radiant-event_calendar-extension>, ["~> 1.3.0"])
+      s.add_dependency(%q<radiant-taggable-extension>, ["~> 1.2.0"])
     end
   else
-    s.add_dependency(%q<radiant>, [">= 0.9.0"])
-    s.add_dependency(%q<radiant-event_calendar-extension>, [">= 0"])
-    s.add_dependency(%q<radiant-taggable-extension>, [">= 0"])
+    s.add_dependency(%q<radiant>, ["~> 0.9.0"])
+    s.add_dependency(%q<radiant-event_calendar-extension>, ["~> 1.3.0"])
+    s.add_dependency(%q<radiant-taggable-extension>, ["~> 1.2.0"])
   end
 end
 
