@@ -1,4 +1,4 @@
-module TaggedEventsController
+module TaggableEventsController
 
   def self.included(base)
     base.class_eval {

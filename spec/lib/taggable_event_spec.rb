@@ -4,7 +4,7 @@ describe Calendar do
   dataset :events
 
   it "should report itself taggable" do
-    Calendar.is_taggable?.should be_true
+    Calendar.has_tags?.should be_true
   end
 
   it "should have attached tags" do
@@ -16,7 +16,7 @@ describe EventVenue do
   dataset :events
 
   it "should report itself taggable" do
-    EventVenue.is_taggable?.should be_true
+    EventVenue.has_tags?.should be_true
   end
 
   it "should have attached tags" do
@@ -28,7 +28,7 @@ describe Event do
   dataset :events
   
   it "should report itself taggable" do
-    Event.is_taggable?.should be_true
+    Event.has_tags?.should be_true
   end
 
   it "should have attached tags" do

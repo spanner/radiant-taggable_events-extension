@@ -1,5 +1,7 @@
 module TaggableEventTags
   include Radiant::Taggable
+  include EventCalendarTags
+  
   class TagError < StandardError; end
 
   desc %{ 
