@@ -26,9 +26,9 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.post_install_message = %{
-  Add this to your radiant project with:
+  Add this to your Gemfile with:
 
-    config.gem 'radiant-taggable_events-extension', :version => '~> #{RadiantTaggableEventsExtension::VERSION}'
+    gem 'radiant-taggable_events-extension', '~> #{RadiantTaggableEventsExtension::VERSION}'
 
   }
 end
