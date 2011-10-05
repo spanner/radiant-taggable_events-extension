@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.description = RadiantTaggableEventsExtension::DESCRIPTION
 
   s.add_dependency "radiant-event_calendar-extension", "~> 1.5.0"
-  s.add_dependency "radiant-taggable-extension", "~> 2.0.0.rc4"
+  s.add_dependency "radiant-taggable-extension", "~> 2.0.1"
 
   ignores = if File.exist?('.gitignore')
     File.read('.gitignore').split("\n").inject([]) {|a,p| a + Dir[p] }
